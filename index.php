@@ -54,11 +54,11 @@ foreach ($values as $key => $value) {
   }
 }
 
-$dates = explode(' ', $data['birthdate']);
-
+$dates = explode(' ', trim($data['birthdate']));
 $months = array("janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre");
+$monthLetter = $dates[1];
+$monthNumber = array_search($monthLetter, $months) + 1;
+$date = $dates[2] . '-' . $monthNumber . '-' . $dates[0];
 
-$month = $dates[2];
-$key = array_search($month, $months);
-  var_dump($key + 1);
+  var_dump($date);
  ?>
